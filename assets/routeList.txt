@@ -1,0 +1,56 @@
+10th Street,coralville
+AM Express,coralville
+AM North Liberty,coralville
+Lantern Park,coralville
+Night/Saturday,coralville
+PM Express,coralville
+PM North Liberty,coralville
+PM Special,coralville
+7th Avenue,iowa-city
+Broadway,iowa-city
+Broadway Night & Weekend,iowa-city
+Court Hill,iowa-city
+Cross Park,iowa-city
+Eastside Express,iowa-city
+Eastside Loop AM,iowa-city
+Eastside Loop PM,iowa-city
+Event Shuttle,iowa-city
+Free Shuttle North,iowa-city
+Free Shuttle South,iowa-city
+Lakeside,iowa-city
+Mall,iowa-city
+Manville Heights,iowa-city
+Manville Heights Night & Weekend,iowa-city
+Melrose Express,iowa-city
+North Dodge,iowa-city
+North Dodge Night & Weekend,iowa-city
+Oakcrest,iowa-city
+Oakcrest Night & Weekend,iowa-city
+Plaen View,iowa-city
+Rochester,iowa-city
+Towncrest,iowa-city
+Towncrest Night & Weekend,iowa-city
+Westport,iowa-city
+Westside Hospital,iowa-city
+Westwinds,iowa-city
+Westwinds Night & Weekend,iowa-city
+ABW/Studio Arts,uiowa
+Basketball Shuttle,uiowa
+Blue,uiowa
+East Campus Shuttle,uiowa
+Finals Week Interdorm,uiowa
+Hawk Express,uiowa
+Hawk Lot/Hospital,uiowa
+Hawkeye Hospital,uiowa
+Hawkeye Interdorm,uiowa
+Hospital,uiowa
+Hospital via Hancher,uiowa
+Hospital/VA Loop,uiowa
+Interdorm,uiowa
+Mayflower Shuttle,uiowa
+Music/Theatre Shuttle,uiowa
+Night Pentacrest,uiowa
+Pentacrest,uiowa
+Red,uiowa
+Research Park,uiowa
+Studio Arts Shuttle,uiowa

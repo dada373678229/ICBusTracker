@@ -1,6 +1,8 @@
 package com.tetrahedronTech.ICBusTracker;
 
-public class Information {
+public class Information 
+{
+	
 	private String title;
 	private String tag;
 	private String minutes;
@@ -12,71 +14,84 @@ public class Information {
 	private String lng;
 	private String heading;
 	
-	public void setTitle(String title){
+	public void setTitle(String title)
+	{
 		this.title=title;
 	}
-	public String getTitle(){
+	public String getTitle()
+	{
 		return title;
 	}
-	public void setTag(String tag){
+	public void setTag(String tag)
+	{
 		this.tag=tag;
 	}
-	public String getTag(){
+	public String getTag()
+	{
 		return tag;
 	}
-	public void setMinutes(String minutes){
+	public void setMinutes(String minutes)
+	{
 		this.minutes=minutes;
 	}
-	public String getMinutes(){
+	public String getMinutes()
+	{
 		return minutes;
 	}
-	public void setAgency(String agency){
+	public void setAgency(String agency)
+	{
 		this.agency=agency;
 	}
-	public String getAgency(){
+	public String getAgency()
+	{
 		return agency;
 	}
-	public void setDirection(String direction){
+	public void setDirection(String direction)
+	{
 		this.direction=direction;
 	}
-	public String getDirection(){
+	public String getDirection()
+	{
 		return direction;
 	}
-	public void setStopname(String stopname){
+	public void setStopname(String stopname)
+	{
 		this.stopname=stopname;
 	}
-	public String getStopname(){
+	public String getStopname()
+	{
 		return stopname;
 	}
-	public void setId(String id){
+	public void setId(String id)
+	{
 		this.id=id;
 	}
-	public String getId(){
+	public String getId()
+	{
 		return id;
 	}
-	public void setLat(String lat){
+	public void setLat(String lat)
+	{
 		this.lat=lat;
 	}
-	public String getLat(){
+	public String getLat()
+	{
 		return lat;
 	}
-	public void setLng(String lng){
+	public void setLng(String lng)
+	{
 		this.lng=lng;
 	}
-	public String getLng(){
+	public String getLng()
+	{
 		return lng;
 	}
-	public void setHeading(String heading){
+	public void setHeading(String heading)
+	{
 		this.heading=heading;
 	}
-	public String getHeading(){
+	public String getHeading()
+	{
 		return heading;
 	}
-	/*public String toString(){
-		return id+": "+lat+": "+lng+":"+heading;
-	}
-	public String toString(){
-		return id+": "+lat+": "+lng+":"+heading+":"+title+": "+tag+": "+minutes+":"+agency+":"+direction+":"+stopname;
-	}*/
 }
-

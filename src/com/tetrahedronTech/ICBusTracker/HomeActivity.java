@@ -23,8 +23,9 @@ public class HomeActivity extends Activity {
 		String styledText = "<div><font color='#fcfff0'>Your favorite stop</font></div><div><font color='#fcfff0'>1051</font></div><div><font color='#fcfff0'><small>1051</small></font></div>";
 		b.setText(Html.fromHtml(styledText));
 		Button t = (Button) findViewById(R.id.weatherButton);
+		
 		coreAPI api = new coreAPI();
-		String temp = api.busLocations("uiowa","red");
+		String temp = api.busPrediction(1051);
 		t.setText(temp);
 	}
 

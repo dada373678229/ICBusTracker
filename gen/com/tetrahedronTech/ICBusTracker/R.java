@@ -238,9 +238,15 @@ containing a value of this type.
         public static final int yellow1=0x7f020021;
     }
     public static final class id {
-        public static final int action_settings=0x7f060007;
+        public static final int action_settings=0x7f06000d;
         public static final int favoritButton=0x7f060006;
         public static final int hybrid=0x7f060004;
+        public static final int listview_routes_imageView=0x7f060009;
+        public static final int listview_routes_textView1=0x7f060007;
+        public static final int listview_routes_textView2=0x7f060008;
+        public static final int listview_stops_textView1=0x7f06000a;
+        public static final int listview_stops_textView2=0x7f06000b;
+        public static final int listview_stops_textView3=0x7f06000c;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
         public static final int satellite=0x7f060002;

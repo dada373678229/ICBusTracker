@@ -4,9 +4,10 @@ import java.util.List;
 
 public class coreAPI 
 {	
+	//ebongo official key
 	private String key="xApBvduHbU8SRYvc74hJa7jO70Xx4XNO";
 	private String output="";
-	
+	//bus location tostring
 	private String toStringBL(List<Information> Infor)
 	{
 		String result="";
@@ -22,7 +23,7 @@ public class coreAPI
 		}
 		return result;
 	}
-	
+	//bus prediction tostring
 	private String toStringBP(List<Information> Infor){
 		String result="";
 		int listSize=Infor.size();
@@ -37,7 +38,7 @@ public class coreAPI
 		}
 		return result;
 	}
-	
+	//these are the only two public method you can call to get API information
 	public String busPrediction(int stopNumber)
 	{	
 		String finalUrl ="http://api.ebongo.org/prediction?stopid="+stopNumber+"&api_key="+key;

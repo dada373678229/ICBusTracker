@@ -17,7 +17,9 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@drawable/button_custom"
-        android:onClick="onClickWeather"/>
+        android:onClick="onClickWeather"
+        android:text="this is weather button"
+        android:color="#fcfff0"/>
     </LinearLayout>
 
     
@@ -33,22 +35,31 @@
         android:layout_weight="2.3"
         android:background="@drawable/button_custom"
         android:gravity="center_vertical"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        android:onClick="onClickFavorit"/>
     <LinearLayout 
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_weight="1">
         <Button
+            android:id="@+id/stopsButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@drawable/button_custom"/>
+            android:background="@drawable/button_custom"
+            android:onClick="onClickStops"
+            android:text="stops"
+            android:color="#fcfff0"/>
         <Button
+            android:id="@+id/routesButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@drawable/button_custom"/>
+            android:background="@drawable/button_custom"
+            android:onClick="onClickRoutes"
+            android:text="routes"
+            android:color="#fcfff0"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="0dp"

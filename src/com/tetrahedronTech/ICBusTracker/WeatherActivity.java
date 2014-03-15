@@ -1,11 +1,15 @@
 package com.tetrahedronTech.ICBusTracker;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 
 public class WeatherActivity extends Activity{
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -16,6 +20,7 @@ public class WeatherActivity extends Activity{
 		actionBar.setTitle("weather");
 	}
 	
+	//animation when back button is pressed
 	@Override
 	public void onBackPressed() {
 	    super.onBackPressed();

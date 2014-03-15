@@ -242,12 +242,12 @@ containing a value of this type.
         public static final int favoritButton=0x7f060007;
         public static final int favorite_list=0x7f060005;
         public static final int hybrid=0x7f060004;
-        public static final int listview_routes_imageView=0x7f06000c;
-        public static final int listview_routes_textView1=0x7f06000a;
-        public static final int listview_routes_textView2=0x7f06000b;
-        public static final int listview_stops_textView1=0x7f06000d;
-        public static final int listview_stops_textView2=0x7f06000e;
-        public static final int listview_stops_textView3=0x7f06000f;
+        public static final int listview_three_parts_image_imageView=0x7f06000c;
+        public static final int listview_three_parts_image_textView1=0x7f06000a;
+        public static final int listview_three_parts_image_textView2=0x7f06000b;
+        public static final int listview_three_parts_text_textView1=0x7f06000d;
+        public static final int listview_three_parts_text_textView2=0x7f06000e;
+        public static final int listview_three_parts_text_textView3=0x7f06000f;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
         public static final int routesButton=0x7f060009;
@@ -265,8 +265,9 @@ containing a value of this type.
         public static final int activity_routes=0x7f030002;
         public static final int activity_stops=0x7f030003;
         public static final int activity_weather=0x7f030004;
-        public static final int listview_routes=0x7f030005;
-        public static final int listview_stops=0x7f030006;
+        public static final int listview_three_parts_image=0x7f030005;
+        public static final int listview_three_parts_text=0x7f030006;
+        public static final int listview_two_parts_image=0x7f030007;
     }
     public static final class menu {
         public static final int home=0x7f0b0000;

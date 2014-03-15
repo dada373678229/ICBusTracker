@@ -11,7 +11,7 @@
         android:orientation="vertical" >
         
         <TextView 
-            android:id="@+id/listview_stops_textView1"
+            android:id="@+id/listview_three_parts_image_textView1"
          	android:layout_width="match_parent"
          	android:layout_height="0dp"
          	android:layout_weight="3"
@@ -19,7 +19,7 @@
          	android:textColor="#ffff00"/>
         
         <TextView 
-            android:id="@+id/listview_stops_textView2"
+            android:id="@+id/listview_three_parts_image_textView2"
          	android:layout_width="match_parent"
          	android:layout_height="0dp"
          	android:background="#00FFFF"
@@ -27,11 +27,11 @@
         
         </LinearLayout>
         
-    <TextView 
-        android:id="@+id/listview_stops_textView3"
+    <ImageView 
+        android:id="@+id/listview_three_parts_image_imageView"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="3"/>
+        android:layout_weight="1"/>
          
          
 </LinearLayout>

@@ -10,7 +10,8 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 public class xmlPullParserBL {
-private String urlString = null;
+	
+	private String urlString = null;
 	
 	private XmlPullParserFactory xmlFactoryObject;
 	
@@ -20,7 +21,6 @@ private String urlString = null;
 	
 	private Information infor;
 	
-
 	
 	public List<Information> getInfor(){
 		return Infor;

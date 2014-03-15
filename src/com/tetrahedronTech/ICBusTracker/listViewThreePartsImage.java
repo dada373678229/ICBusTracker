@@ -15,11 +15,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-public class listViewStops extends ListFragment { 
+public class listViewThreePartsImage extends ListFragment { 
 
 	//values contains the data you want to display in a list
 	private List<String> values=new ArrayList<String>();
-	private listViewStopsAdapter myAdapter;
+	private listViewThreePartsImageAdapter myAdapter;
 	
 	//receive data from outside and store it into values
 	@Override
@@ -34,7 +34,7 @@ public class listViewStops extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    //listAdapter myAdapter=new listAdapter(getActivity(), values);
-	    myAdapter=new listViewStopsAdapter(getActivity(), values);
+	    myAdapter=new listViewThreePartsImageAdapter(getActivity(), values);
 	    setListAdapter(myAdapter);
 	}
 	/*

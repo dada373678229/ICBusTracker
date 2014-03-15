@@ -21,6 +21,7 @@ public class xmlPullParserBP
 	
 	private Information infor;
 	
+	
 	public List<Information> getInfor(){
 		return Infor;
 	}

@@ -10,15 +10,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class listViewStopsAdapter extends ArrayAdapter<String>{
+public class listViewThreePartsImageAdapter extends ArrayAdapter<String>{
 	
 	//values contains the data you want to display in a list
 	private final Context context;
 	private final List<String> values;
 	
 	//a custom adapter
-	public listViewStopsAdapter(Context listFragment, List<String> values) {
-		super(listFragment, R.layout.listview_stops, values);
+	public listViewThreePartsImageAdapter(Context listFragment, List<String> values) {
+		super(listFragment, R.layout.listview_three_parts_image, values);
 		this.context = listFragment;
 		this.values = values;
 	}
@@ -27,8 +27,8 @@ public class listViewStopsAdapter extends ArrayAdapter<String>{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		//inflate the layout, and find a specific view by id
 		LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View rowView=inflater.inflate(R.layout.listview_stops, parent, false);
-		TextView textView1=(TextView) rowView.findViewById(R.id.listview_stops_textView1);
+		View rowView=inflater.inflate(R.layout.listview_three_parts_image, parent, false);
+		TextView textView1=(TextView) rowView.findViewById(R.id.listview_three_parts_image_textView1);
 		//TextView textView2=(TextView) rowView.findViewById(R.id.listview_stops_textView2);
 		//ImageView imageView=(ImageView) rowView.findViewById(R.id.listview_stops_textView3);
 		

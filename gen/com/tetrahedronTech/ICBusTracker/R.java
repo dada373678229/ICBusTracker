@@ -238,7 +238,7 @@ containing a value of this type.
         public static final int yellow1=0x7f020021;
     }
     public static final class id {
-        public static final int action_settings=0x7f060010;
+        public static final int action_settings=0x7f060012;
         public static final int favoritButton=0x7f060007;
         public static final int favorite_list=0x7f060005;
         public static final int hybrid=0x7f060004;
@@ -248,6 +248,8 @@ containing a value of this type.
         public static final int listview_three_parts_text_textView1=0x7f06000d;
         public static final int listview_three_parts_text_textView2=0x7f06000e;
         public static final int listview_three_parts_text_textView3=0x7f06000f;
+        public static final int listview_two_parts_image_imageView=0x7f060011;
+        public static final int listview_two_parts_image_textView=0x7f060010;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
         public static final int routesButton=0x7f060009;

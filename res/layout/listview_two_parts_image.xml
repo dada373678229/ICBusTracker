@@ -11,7 +11,7 @@
         android:orientation="vertical" >
         
         <TextView 
-            android:id="@+id/listview_three_parts_image_textView1"
+            android:id="@+id/listview_two_parts_image_textView"
          	android:layout_width="match_parent"
          	android:layout_height="match_parent"
          	android:textSize="25dp"
@@ -21,7 +21,7 @@
         </LinearLayout>
         
     <ImageView 
-        android:id="@+id/listview_three_parts_image_imageView"
+        android:id="@+id/listview_two_parts_image_imageView"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>

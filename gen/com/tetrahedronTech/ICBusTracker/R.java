@@ -244,7 +244,6 @@ containing a value of this type.
     }
     public static final class id {
         public static final int action_settings=0x7f060014;
-        public static final int container=0x7f06000b;
         public static final int favoritButton=0x7f060007;
         public static final int favorite_list=0x7f060005;
         public static final int hybrid=0x7f060004;
@@ -258,6 +257,7 @@ containing a value of this type.
         public static final int listview_two_parts_image_textView=0x7f060012;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
+        public static final int routeDetailMapFragment=0x7f06000b;
         public static final int route_list=0x7f06000a;
         public static final int routesButton=0x7f060009;
         public static final int satellite=0x7f060002;
@@ -275,10 +275,9 @@ containing a value of this type.
         public static final int activity_routes_detail=0x7f030003;
         public static final int activity_stops=0x7f030004;
         public static final int activity_weather=0x7f030005;
-        public static final int fragment_routes_detail=0x7f030006;
-        public static final int listview_three_parts_image=0x7f030007;
-        public static final int listview_three_parts_text=0x7f030008;
-        public static final int listview_two_parts_image=0x7f030009;
+        public static final int listview_three_parts_image=0x7f030006;
+        public static final int listview_three_parts_text=0x7f030007;
+        public static final int listview_two_parts_image=0x7f030008;
     }
     public static final class menu {
         public static final int home=0x7f0b0000;

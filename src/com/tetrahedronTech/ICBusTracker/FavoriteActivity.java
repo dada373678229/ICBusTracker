@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
 
 public class FavoriteActivity extends Activity{
 	@Override
@@ -21,6 +22,7 @@ public class FavoriteActivity extends Activity{
 		
 		//al contains the data you want to display in a list view
 		ArrayList<String> al = new ArrayList<String>();
+		ArrayList<String> al2=new ArrayList<String>();
 		
 		try{
 			AssetManager am=this.getAssets();
@@ -32,6 +34,7 @@ public class FavoriteActivity extends Activity{
 			while (line != null){
 				data=line.split(",");
 				al.add(data[0]);
+				al2.add(data[1]);
 				line=br.readLine();
 			}
 		}
@@ -42,6 +45,7 @@ public class FavoriteActivity extends Activity{
 		//create a key-value bundle and pass the bundle to the fragment
 		Bundle bd = new Bundle();
 		bd.putStringArrayList("key", al);
+		bd.putStringArrayList("key2", al2);
 		f.setArguments(bd);
 	}
 	

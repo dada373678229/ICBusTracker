@@ -194,6 +194,11 @@ containing a value of this type.
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
 
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
+
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
@@ -238,20 +243,22 @@ containing a value of this type.
         public static final int yellow1=0x7f020021;
     }
     public static final class id {
-        public static final int action_settings=0x7f060012;
+        public static final int action_settings=0x7f060014;
+        public static final int container=0x7f06000b;
         public static final int favoritButton=0x7f060007;
         public static final int favorite_list=0x7f060005;
         public static final int hybrid=0x7f060004;
-        public static final int listview_three_parts_image_imageView=0x7f06000c;
-        public static final int listview_three_parts_image_textView1=0x7f06000a;
-        public static final int listview_three_parts_image_textView2=0x7f06000b;
-        public static final int listview_three_parts_text_textView1=0x7f06000d;
-        public static final int listview_three_parts_text_textView2=0x7f06000e;
-        public static final int listview_three_parts_text_textView3=0x7f06000f;
-        public static final int listview_two_parts_image_imageView=0x7f060011;
-        public static final int listview_two_parts_image_textView=0x7f060010;
+        public static final int listview_three_parts_image_imageView=0x7f06000e;
+        public static final int listview_three_parts_image_textView1=0x7f06000c;
+        public static final int listview_three_parts_image_textView2=0x7f06000d;
+        public static final int listview_three_parts_text_textView1=0x7f06000f;
+        public static final int listview_three_parts_text_textView2=0x7f060010;
+        public static final int listview_three_parts_text_textView3=0x7f060011;
+        public static final int listview_two_parts_image_imageView=0x7f060013;
+        public static final int listview_two_parts_image_textView=0x7f060012;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
+        public static final int route_list=0x7f06000a;
         public static final int routesButton=0x7f060009;
         public static final int satellite=0x7f060002;
         public static final int stopsButton=0x7f060008;
@@ -265,14 +272,17 @@ containing a value of this type.
         public static final int activity_favorite=0x7f030000;
         public static final int activity_home=0x7f030001;
         public static final int activity_routes=0x7f030002;
-        public static final int activity_stops=0x7f030003;
-        public static final int activity_weather=0x7f030004;
-        public static final int listview_three_parts_image=0x7f030005;
-        public static final int listview_three_parts_text=0x7f030006;
-        public static final int listview_two_parts_image=0x7f030007;
+        public static final int activity_routes_detail=0x7f030003;
+        public static final int activity_stops=0x7f030004;
+        public static final int activity_weather=0x7f030005;
+        public static final int fragment_routes_detail=0x7f030006;
+        public static final int listview_three_parts_image=0x7f030007;
+        public static final int listview_three_parts_text=0x7f030008;
+        public static final int listview_two_parts_image=0x7f030009;
     }
     public static final class menu {
         public static final int home=0x7f0b0000;
+        public static final int routes_detail=0x7f0b0001;
     }
     public static final class string {
         public static final int action_settings=0x7f07001b;
@@ -372,6 +382,7 @@ containing a value of this type.
          */
         public static final int common_signin_button_text_long=0x7f070013;
         public static final int hello_world=0x7f07001c;
+        public static final int title_activity_routes_detail=0x7f07001d;
     }
     public static final class style {
         /** 

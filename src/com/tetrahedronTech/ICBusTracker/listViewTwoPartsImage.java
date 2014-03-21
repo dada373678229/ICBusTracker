@@ -7,10 +7,13 @@ import java.util.List;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.ListFragment;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater; 
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -25,17 +28,15 @@ public class listViewTwoPartsImage extends ListFragment {
 	@Override
 	public void setArguments(Bundle args){
 		values=args.getStringArrayList("key");
-		myAdapter.clear();
-		myAdapter.addAll(values);
-		myAdapter.notifyDataSetChanged();
+		myAdapter=new listViewTwoPartsImageAdapter(getActivity(), values);
+	    setListAdapter(myAdapter);
 	}
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    //listAdapter myAdapter=new listAdapter(getActivity(), values);
-	    myAdapter=new listViewTwoPartsImageAdapter(getActivity(), values);
-	    setListAdapter(myAdapter);
+	    
 	}
 	/*
 	@Override
@@ -50,7 +51,9 @@ public class listViewTwoPartsImage extends ListFragment {
 	@Override
 	public void onListItemClick(ListView l, View v, int pos, long id) {
 	  super.onListItemClick(l, v, pos, id);
-	  
+	  Intent i = new Intent(getActivity(), RoutesDetailActivity.class);
+	  i.putExtra("route", values.get(pos));
+	  startActivity(i);
 	}
 	
 }

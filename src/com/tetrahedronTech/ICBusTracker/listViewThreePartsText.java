@@ -19,23 +19,26 @@ public class listViewThreePartsText extends ListFragment {
 
 	//values contains the data you want to display in a list
 	private List<String> values=new ArrayList<String>();
+	private List<String> values2=new ArrayList<String>();
+	private List<String> values3=new ArrayList<String>();
 	private listViewThreePartsTextAdapter myAdapter;
 	
 	//receive data from outside and store it into values
 	@Override
 	public void setArguments(Bundle args){
 		values=args.getStringArrayList("key");
-		myAdapter.clear();
-		myAdapter.addAll(values);
-		myAdapter.notifyDataSetChanged();
+		values2=args.getStringArrayList("key2");
+		values3=args.getStringArrayList("key3");
+		//myAdapter.clear();
+		//myAdapter.addAll(values);
+		//myAdapter.notifyDataSetChanged();
+		myAdapter=new listViewThreePartsTextAdapter(getActivity(), values, values2, values3);
+	    setListAdapter(myAdapter);
 	}
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    //listAdapter myAdapter=new listAdapter(getActivity(), values);
-	    myAdapter=new listViewThreePartsTextAdapter(getActivity(), values);
-	    setListAdapter(myAdapter);
 	}
 	/*
 	@Override

@@ -6,8 +6,8 @@
     android:background="#000000">
     
     <fragment 
+        android:id="@+id/favorite_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.tetrahedronTech.ICBusTracker.listViewThreePartsImage"
-        android:id="@+id/favorite_list"/>
+        android:name="com.tetrahedronTech.ICBusTracker.listViewThreePartsImage"/>
 </LinearLayout>

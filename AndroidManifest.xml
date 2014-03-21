@@ -5,15 +5,15 @@
     android:versionName="1.0" >
 
     <uses-permission android:name="com.tetrahedronTech.ICBusTracker.permission.MAPS_RECEIVE" />
-    
+
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="19" />
-    
+
     <permission
-      android:name="com.tetrahedronTech.ICBusTracker.permission.MAPS_RECEIVE"
-      android:protectionLevel="signature" />
-    
+        android:name="com.tetrahedronTech.ICBusTracker.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
@@ -21,9 +21,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-	<uses-feature
+    <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true"/>
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -35,53 +35,58 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.tetrahedronTech.ICBusTracker.WeatherActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.tetrahedronTech.ICBusTracker.intent.WeatherActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-        <activity 
+        <activity
             android:name="com.tetrahedronTech.ICBusTracker.FavoriteActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.tetrahedronTech.ICBusTracker.intent.FavoriteActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.tetrahedronTech.ICBusTracker.StopsActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.tetrahedronTech.ICBusTracker.intent.StopsActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.tetrahedronTech.ICBusTracker.RoutesActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.tetrahedronTech.ICBusTracker.intent.RoutesActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
+
         <meta-data
-    		android:name="com.google.android.gms.version"
-    		android:value="@integer/google_play_services_version" />
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <meta-data
-    		android:name="com.google.android.maps.v2.API_KEY"
-    		android:value="AIzaSyBJR8tVn7US5PMg-4PKHIgom1iyyvF9YZo"/>
-        
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBJR8tVn7US5PMg-4PKHIgom1iyyvF9YZo" />
+
+        <activity
+            android:name="com.tetrahedronTech.ICBusTracker.RoutesDetailActivity"
+            android:label="@string/title_activity_routes_detail" >
+        </activity>
     </application>
 
 </manifest>

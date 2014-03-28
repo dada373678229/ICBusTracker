@@ -1,4 +1,4 @@
-package com.tetrahedronTech.ICBusTracker;
+package com.tetrahedronTech.ICBusTracker.API;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -9,9 +9,9 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-public class xmlPullParserBP 
-{
-    private String urlString = null;
+public class xmlPullParserBL {
+	
+	private String urlString = null;
 	
 	private XmlPullParserFactory xmlFactoryObject;
 	
@@ -26,11 +26,13 @@ public class xmlPullParserBP
 		return Infor;
 	}
 	
-	public xmlPullParserBP(String url)
+	public xmlPullParserBL(String url)
 	{
 		this.urlString = url;
 		
 	}
+
+
 	public List<Information> parseXMLAndStoreIt(XmlPullParser myParser) 
 	{
 		int event;
@@ -44,7 +46,7 @@ public class xmlPullParserBP
 	            switch (event)
 	            {
 	            case XmlPullParser.START_TAG:
-	            	if(name.equalsIgnoreCase("prediction"))
+	            	if(name.equalsIgnoreCase("bus"))
 	            	{
 						infor=new Information();
 					}
@@ -56,33 +58,25 @@ public class xmlPullParserBP
 	            
 	            case XmlPullParser.END_TAG:
 	            	
-	            	if(name.equals("prediction"))
+	            	if(name.equals("bus"))
 	            	{
 	            		Infor.add(infor);
 	            	}
-	            	if(name.equals("title"))
+	            	if(name.equals("id"))
 	            	{
-	            		infor.setTitle(text);
+	            		infor.setId(text);
 	                }
-	                else if(name.equals("tag"))
+	                else if(name.equals("lat"))
 	                { 	
-	                	infor.setTag(text);
+	                	infor.setLat(text);
 	                }
-	                else if(name.equals("minutes"))
+	                else if(name.equals("lng"))
 	                {
-	                	infor.setMinutes(text);
+	                	infor.setLng(text);
 	                }
-	                else if(name.equals("agency"))
+	                else if(name.equals("heading"))
 	                {
-	                	infor.setAgency(text);
-	                }
-	                else if(name.equals("direction"))
-	                {
-	                	infor.setDirection(text);
-	                }
-	                else if(name.equals("stopname"))
-	                {
-	                	infor.setStopname(text);
+	                	infor.setHeading(text);
 	                }
 	                break;
 	            }

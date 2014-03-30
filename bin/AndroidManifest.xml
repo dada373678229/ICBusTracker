@@ -60,6 +60,8 @@
         <activity
             android:name="com.tetrahedronTech.ICBusTracker.StopsActivity"
             android:label="@string/app_name" >
+            <meta-data android:name="android.app.searchable"
+            android:resource="@xml/searchable" />
             <intent-filter>
                 <action android:name="android.tetrahedronTech.ICBusTracker.intent.StopsActivity" />
 
@@ -75,6 +77,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name="com.tetrahedronTech.ICBusTracker.RoutesDetailActivity"
+            android:label="@string/title_activity_routes_detail" >
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -83,10 +90,7 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBJR8tVn7US5PMg-4PKHIgom1iyyvF9YZo" />
 
-        <activity
-            android:name="com.tetrahedronTech.ICBusTracker.RoutesDetailActivity"
-            android:label="@string/title_activity_routes_detail" >
-        </activity>
+        
     </application>
 
 </manifest>

@@ -5,5 +5,9 @@
     android:orientation="vertical" 
     android:background="#000000">
     
+    <it.gmariotti.cardslib.library.view.CardListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/stopListView"/>
 
 </LinearLayout>

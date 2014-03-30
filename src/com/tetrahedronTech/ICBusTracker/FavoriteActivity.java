@@ -1,9 +1,16 @@
 package com.tetrahedronTech.ICBusTracker;
 
+import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
+import it.gmariotti.cardslib.library.view.CardListView;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+
+import com.tetrahedronTech.ICBusTracker.cards.routeListCard;
+import com.tetrahedronTech.ICBusTracker.cards.routeListDetailCard;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -20,33 +27,14 @@ public class FavoriteActivity extends Activity{
 		ActionBar actionBar = getActionBar();
 		actionBar.setTitle("favorite");
 		
-		//al contains the data you want to display in a list view
-		ArrayList<String> al = new ArrayList<String>();
-		ArrayList<String> al2=new ArrayList<String>();
+		ArrayList<Card> cards = new ArrayList<Card>();
+		cards =setListItem();
 		
-		try{
-			AssetManager am=this.getAssets();
-			InputStream in = am.open("allStops.txt");
-			InputStreamReader isr = new InputStreamReader(in);
-			BufferedReader br= new BufferedReader(isr);
-			String line = br.readLine();
-			String data[];
-			while (line != null){
-				data=line.split(",");
-				al.add(data[0]);
-				al2.add(data[1]);
-				line=br.readLine();
-			}
-		}
-		catch(Exception e){}
-		
-		//find a specific fragment that you want to display your list
-		Fragment f = (Fragment) getFragmentManager().findFragmentById(R.id.favorite_list);
-		//create a key-value bundle and pass the bundle to the fragment
-		Bundle bd = new Bundle();
-		bd.putStringArrayList("key", al);
-		bd.putStringArrayList("key2", al2);
-		f.setArguments(bd);
+		CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(this,cards);
+		CardListView listView = (CardListView) findViewById(R.id.favoriteListView);
+        if (listView!=null){
+            listView.setAdapter(mCardArrayAdapter);
+        }
 	}
 	
 	//animation when back button is pressed
@@ -54,5 +42,28 @@ public class FavoriteActivity extends Activity{
 	public void onBackPressed() {
 	    super.onBackPressed();
 	    overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right);
+	}
+	
+	private ArrayList<Card> setListItem(){
+		ArrayList<Card> result=new ArrayList<Card>();
+		try{
+			AssetManager am=this.getAssets();
+			InputStream in = am.open("allRoutes.txt");
+			InputStreamReader isr = new InputStreamReader(in);
+			BufferedReader br= new BufferedReader(isr);
+			String line = br.readLine();
+			String data[];
+			
+			while (line != null){
+				Card temp=new routeListDetailCard(this);
+				data=line.split(",");
+				((routeListDetailCard) temp).setContent(data[0],data[1],"100min");
+				temp.setId(data[0]);
+				result.add(temp);
+				line=br.readLine();
+			}
+		}
+		catch (Exception e){}
+		return result;
 	}
 }

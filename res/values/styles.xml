@@ -16,5 +16,20 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <style name="routeList">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    
+    <style name="stopId">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    
+    <style name="stopName">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
 
 </resources>

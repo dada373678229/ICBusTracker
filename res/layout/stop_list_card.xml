@@ -10,8 +10,7 @@
         	style="@style/stopId"
         	android:layout_width="match_parent"
         	android:layout_height="wrap_content"
-        	android:paddingTop="5dp"
-        	android:paddingBottom="5dp"/>
+        	android:paddingTop="5dp"/>
         
         <TextView
         	android:id="@+id/stop_list_view_stopName"

@@ -17,8 +17,7 @@
         	style="@style/routeList"
         	android:layout_width="match_parent"
         	android:layout_height="wrap_content"
-        	android:paddingTop="5dp"
-        	android:paddingBottom="5dp"/>
+        	android:paddingTop="5dp"/>
         
         <TextView
         	android:id="@+id/route_list_view_detail_routeDirection"

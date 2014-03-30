@@ -29,8 +29,9 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Holo" >
+        android:theme="@android:style/Theme.Holo">
         <activity
+            android:screenOrientation="portrait"
             android:name="com.tetrahedronTech.ICBusTracker.HomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -40,6 +41,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name="com.tetrahedronTech.ICBusTracker.WeatherActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -49,6 +51,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name="com.tetrahedronTech.ICBusTracker.FavoriteActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -58,6 +61,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name="com.tetrahedronTech.ICBusTracker.StopsActivity"
             android:label="@string/app_name" >
             <meta-data android:name="android.app.searchable"
@@ -69,6 +73,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name="com.tetrahedronTech.ICBusTracker.RoutesActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -79,6 +84,7 @@
         </activity>
         
         <activity
+            android:screenOrientation="portrait"
             android:name="com.tetrahedronTech.ICBusTracker.RoutesDetailActivity"
             android:label="@string/title_activity_routes_detail" >
         </activity>

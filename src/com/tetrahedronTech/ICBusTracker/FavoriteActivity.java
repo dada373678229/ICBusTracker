@@ -29,7 +29,7 @@ import android.widget.Toast;
 public class FavoriteActivity extends Activity{
 	
 	private Context context;
-	
+	//"cards" contains cards where each card has bus prediction information
 	private ArrayList<Card> cards = new ArrayList<Card>();
 	
 	@Override
@@ -39,8 +39,8 @@ public class FavoriteActivity extends Activity{
 		ActionBar actionBar = getActionBar();
 		actionBar.setTitle("favorite");
 		context=this;
-		
-		new LongOperation().execute("");
+		//now begin to do the heavy job: get bus predictions
+		new LongOperation().execute(new String[]{"1051"});
 		
 		
 		/*
@@ -55,10 +55,14 @@ public class FavoriteActivity extends Activity{
         
 	}
 	
+	//this class can do heavy tasks in the background. Here, we want it to set cardlist
 	private class LongOperation extends AsyncTask<String, Void, String> {
+		//this method set the arraylist of cards, params can be viewed as String[]
 		@Override
         protected String doInBackground(String... params) {
-			cards=setPredictionItem();
+			int stopId=Integer.parseInt(params[0]);
+			cards=setPredictionItem(stopId);
+			//if we get no prediction, return no, otherwise, return yes
 			if(cards != null){
 				return "yes";
 			}
@@ -67,8 +71,11 @@ public class FavoriteActivity extends Activity{
 			}
 		}
 		
+		//since we CANNOT update user interface UNTIL the doInBackground is finished, so we
+		//have to update the UI AFTER getting the predictions
 		@Override
         protected void onPostExecute(String result) {
+			//if the get any predictions, set the cardlist
 			if (result=="yes"){
 				CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(context,cards);
 				CardListView listView = (CardListView) findViewById(R.id.favoriteListView);
@@ -79,9 +86,6 @@ public class FavoriteActivity extends Activity{
         }
 	}
 	
-	
-
-	
 	//animation when back button is pressed
 	@Override
 	public void onBackPressed() {
@@ -89,34 +93,12 @@ public class FavoriteActivity extends Activity{
 	    overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right);
 	}
 	
-	private ArrayList<Card> setListItem(){
-		ArrayList<Card> result=new ArrayList<Card>();
-		try{
-			AssetManager am=this.getAssets();
-			InputStream in = am.open("allRoutes.txt");
-			InputStreamReader isr = new InputStreamReader(in);
-			BufferedReader br= new BufferedReader(isr);
-			String line = br.readLine();
-			String data[];
-			
-			while (line != null){
-				Card temp=new routeListDetailCard(this);
-				data=line.split(",");
-				((routeListDetailCard) temp).setContent(data[0],data[1],"100min");
-				temp.setId(data[0]);
-				result.add(temp);
-				line=br.readLine();
-			}
-		}
-		catch (Exception e){}
-		return result;
-	}
-	
-	private ArrayList<Card> setPredictionItem(){
+	//this methods returns an arraylist cards where each card is a bus prediction
+	private ArrayList<Card> setPredictionItem(int stopId){
 		ArrayList<Card> result=new ArrayList<Card>();
 		if(isOnline()){
 			coreAPI api=new coreAPI();
-			String p=api.busPrediction(1051);
+			String p=api.busPrediction(stopId);
 			String data[]=p.split(";");
 			for (int i=0; i<data.length;i++){
 				Card temp=new routeListDetailCard(this);
@@ -128,6 +110,7 @@ public class FavoriteActivity extends Activity{
 		return result;
 	}
 	
+	//this methods checks if the device is connected to the Internet and can receive data
 	private boolean isOnline(){
 		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo netInfo = cm.getActiveNetworkInfo();

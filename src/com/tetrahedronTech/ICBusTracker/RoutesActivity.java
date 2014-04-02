@@ -27,7 +27,7 @@ public class RoutesActivity extends Activity{
 	private ArrayList<Card> routeListIC=new ArrayList<Card>();
 	private ArrayList<Card> routeListCambus=new ArrayList<Card>();
 	private ArrayList<Card> routeListAll=new ArrayList<Card>();
-	
+	//routeAgencies contains items shown in the drop down menu on action bar
 	private String[] routeAgencies=new String[]{"Show All","Cambus","Iowa-City","Coralville"};
 	
 	@Override
@@ -54,21 +54,23 @@ public class RoutesActivity extends Activity{
 		overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right);
 	}
 	
+	//this method set the route list for three different agencies and store them in arraylists
 	private void initRouteList(){
 		try{
+			//fetch data from allRoutes.txt
 			AssetManager am=this.getAssets();
 			InputStream in = am.open("allRoutes.txt");
 			InputStreamReader isr = new InputStreamReader(in);
 			BufferedReader br= new BufferedReader(isr);
 			String line = br.readLine();
 			String data[];
-			
+			//read data line by line
 			while (line != null){
 				Card temp=new routeListCard(this);
 				data=line.split(",");
 				((routeListCard) temp).setContent(data[0]);
 				temp.setId(data[0]);
-				
+				//find different agencies and put them into corresponding arraylists
 				if (data[2].equals("coralville")){
 					temp.setBackgroundResourceId(R.drawable.card_selector_blue);
 					routeListCoralville.add(temp);
@@ -90,6 +92,7 @@ public class RoutesActivity extends Activity{
 		
 	}
 	
+	//this method set the card lists using arraylists created before
 	private void setList(ArrayList<Card> routeList){
 		CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(this,routeList);
 		CardListView listView = (CardListView) findViewById(R.id.routeListView);
@@ -98,6 +101,7 @@ public class RoutesActivity extends Activity{
         }
 	}
 	
+	//this method set the drop down navigation list on action bar
 	private void setActionBar(){
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, routeAgencies);
 		getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);

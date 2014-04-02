@@ -31,9 +31,10 @@ public class StopsActivity extends Activity{
 		ActionBar actionBar = getActionBar();
 		actionBar.setTitle("stops");
 		
+		//"cards" contains cards, each card is a stop
 		ArrayList<Card> cards = new ArrayList<Card>();
 		cards =setListItem();
-		
+		//set cards to the card list
 		CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(this,cards);
 		CardListView listView = (CardListView) findViewById(R.id.stopListView);
         if (listView!=null){
@@ -63,15 +64,18 @@ public class StopsActivity extends Activity{
 	    return true;
 	}
 	
+	//this method find all stops, convert them into cards and return an arraylist of them
 	private ArrayList<Card> setListItem(){
 		ArrayList<Card> result=new ArrayList<Card>();
 		try{
+			//open file and read stops
 			AssetManager am=this.getAssets();
 			InputStream in = am.open("allStops.txt");
 			InputStreamReader isr = new InputStreamReader(in);
 			BufferedReader br= new BufferedReader(isr);
 			String line = br.readLine();
 			String data[];
+			//get a single line and analyze stop infomation
 			while (line != null){
 				Card temp=new stopListCard(this);
 				data=line.split(",");

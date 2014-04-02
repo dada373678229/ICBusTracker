@@ -1,8 +1,11 @@
 package com.tetrahedronTech.ICBusTracker.cards;
 
 import com.tetrahedronTech.ICBusTracker.R;
+import com.tetrahedronTech.ICBusTracker.RoutesDetailActivity;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -36,6 +39,10 @@ public class routeListCard extends Card{
 			public void onClick(Card card, View view) {
 				// TODO Auto-generated method stub
 				Toast.makeText(getContext(), "Route "+card.getId()+" clicked", Toast.LENGTH_SHORT).show();
+				Intent i = new Intent(getContext(), RoutesDetailActivity.class);
+				i.putExtra("route", "red");
+				getContext().startActivity(i);
+				((Activity) getContext()).overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
 			}
         });
     }

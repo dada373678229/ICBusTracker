@@ -48,7 +48,7 @@ public class RoutesDetailActivity extends Activity {
 		private LatLng busLocation;
 		private LatLng preBusLocation;
 		final coreAPI api = new coreAPI();
-		/*
+		
 		Runnable busMarker=new Runnable(){
 			@Override
 			public void run(){
@@ -57,13 +57,13 @@ public class RoutesDetailActivity extends Activity {
 				busLocation=new LatLng(Float.parseFloat(temp1[1]), Float.parseFloat(temp1[2]));
 				if(busLocation!=preBusLocation){
 					bus.remove();
-					bus=map.addMarker(new MarkerOptions().position(busLocation).icon(BitmapDescriptorFactory.fromAsset("busIcon.png")).rotation(Float.parseFloat(temp1[3])));
+					bus=map.addMarker(new MarkerOptions().position(busLocation).icon(BitmapDescriptorFactory.fromAsset("busIcon.png")).rotation(Float.parseFloat(temp1[3])).flat(true));
 					busHandler.postDelayed(this, 1000);
 				}
 				preBusLocation=busLocation;
 				
 			}
-		};*/
+		};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +78,10 @@ public class RoutesDetailActivity extends Activity {
 		initMap("red");
 		String[] temp=api.busLocations("uiowa", "red").split(";");
 		String[] temp1=temp[0].split(",");
-		//busLocation=new LatLng(Float.parseFloat(temp1[1]), Float.parseFloat(temp1[2]));
-		//preBusLocation=busLocation;
-		//bus=map.addMarker(new MarkerOptions().position(busLocation).icon(BitmapDescriptorFactory.fromAsset("busIcon.png")).rotation(Float.parseFloat(temp1[3])));
-		//busHandler.postDelayed(busMarker, 1000);
+		busLocation=new LatLng(Float.parseFloat(temp1[1]), Float.parseFloat(temp1[2]));
+		preBusLocation=busLocation;
+		bus=map.addMarker(new MarkerOptions().position(busLocation).icon(BitmapDescriptorFactory.fromAsset("busIcon.png")).rotation(Float.parseFloat(temp1[3])).flat(true));
+		busHandler.postDelayed(busMarker, 1000);
 		
 	}
 	

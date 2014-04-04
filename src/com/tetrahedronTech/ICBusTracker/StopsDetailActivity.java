@@ -26,11 +26,12 @@ public class StopsDetailActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_favorite);
-		ActionBar actionBar = getActionBar();
-		actionBar.setTitle("predictions");
-		context=this;
 		
 		String stopId=getIntent().getExtras().getString("stopId");
+		ActionBar actionBar = getActionBar();
+		actionBar.setTitle(stopId);
+		context=this;
+		
 		//now begin to do the heavy job: get bus predictions
 		new LongOperation().execute(new String[]{stopId});
         

@@ -12,6 +12,7 @@ import java.util.Calendar;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -25,6 +26,8 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -132,8 +135,9 @@ public class RoutesDetailActivity extends Activity {
 	        String[] rawData;
 	        while (line != null){
 	            rawData=line.split(",");
+	            String markerStopId=rawData[0];
 	            //add marker
-	            map.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(rawData[2]), Double.parseDouble(rawData[3]))).title(rawData[0]+" "+rawData[1]).icon(BitmapDescriptorFactory.defaultMarker(200)).alpha(0.7f));
+	            map.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(rawData[2]), Double.parseDouble(rawData[3]))).title(rawData[0]).snippet(rawData[1]).icon(BitmapDescriptorFactory.defaultMarker(200)).alpha(0.7f));
 	            line=br.readLine();
 	        }
 	        is.close();
@@ -157,6 +161,16 @@ public class RoutesDetailActivity extends Activity {
 	        is.close();            
 	        isr.close();
 	        br.close();
+	        
+	        map.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
+	            @Override
+	            public void onInfoWindowClick(Marker marker) {
+	               Intent i = new Intent(getBaseContext(),StopsDetailActivity.class);
+	               i.putExtra("stopId", marker.getTitle());
+	               startActivity(i);
+	               overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+	            }
+	        });
 	       
 	        //for test uses
 	        //map.addMarker(new MarkerOptions().position(center).icon(BitmapDescriptorFactory.fromAsset("busIcon.png")).flat(true).rotation(88));

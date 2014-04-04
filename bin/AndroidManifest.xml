@@ -88,6 +88,12 @@
             android:name="com.tetrahedronTech.ICBusTracker.RoutesDetailActivity"
             android:label="@string/title_activity_routes_detail" >
         </activity>
+        
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.tetrahedronTech.ICBusTracker.StopsDetailActivity"
+            android:label="@string/title_activity_stops_detail" >
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

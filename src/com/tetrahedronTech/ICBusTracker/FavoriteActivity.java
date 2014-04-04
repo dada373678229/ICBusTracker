@@ -99,6 +99,7 @@ public class FavoriteActivity extends Activity{
 		if(isOnline()){
 			coreAPI api=new coreAPI();
 			String p=api.busPrediction(stopId);
+			if (p.length()==0) return result;
 			String data[]=p.split(";");
 			for (int i=0; i<data.length;i++){
 				Card temp=new routeListDetailCard(this);

@@ -2,6 +2,7 @@ package com.tetrahedronTech.ICBusTracker;
 
 import java.io.BufferedReader;
 
+
 import com.tetrahedronTech.ICBusTracker.API.*;
 
 import java.io.InputStream;
@@ -26,6 +27,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.res.AssetManager;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -40,30 +42,36 @@ import android.os.Build;
 public class RoutesDetailActivity extends Activity {
 
 	//camera bound
-		private final LatLngBounds redBound = new LatLngBounds(
-				  new LatLng(41.6569098, -91.5541481), new LatLng(41.6768599, -91.53203));
-		private GoogleMap map;
-		private Marker bus;
-		private Handler busHandler=new Handler();
-		private LatLng busLocation;
-		private LatLng preBusLocation;
-		final coreAPI api = new coreAPI();
-		
-		Runnable busMarker=new Runnable(){
-			@Override
-			public void run(){
-				String[] temp=api.busLocations("uiowa", "red").split(";");
-				String[] temp1=temp[0].split(",");
-				busLocation=new LatLng(Float.parseFloat(temp1[1]), Float.parseFloat(temp1[2]));
-				if(busLocation!=preBusLocation){
-					bus.remove();
-					bus=map.addMarker(new MarkerOptions().position(busLocation).icon(BitmapDescriptorFactory.fromAsset("busIcon.png")).rotation(Float.parseFloat(temp1[3])).flat(true));
-					busHandler.postDelayed(this, 1000);
+	private final LatLngBounds redBound = new LatLngBounds(new LatLng(41.6569098, -91.5541481), new LatLng(41.6768599, -91.53203));
+	private GoogleMap map;
+	
+	//******************************************
+	coreAPI api=new coreAPI();
+	Marker busLocationMarker;
+	/*
+	Thread busMarker=new Thread(new Runnable(){
+		public void run(){
+			
+			runOnUiThread(new Runnable(){
+				public void run(){
+					//while(true){
+						String line=api.busLocations("uiowa", "red");
+						
+						String[] temp=line.split(";");
+						String[] temp1=temp[0].split(",");
+						LatLng busLocation=new LatLng(Float.parseFloat(temp1[1]),Float.parseFloat(temp1[2]));
+						busLocationMarker=map.addMarker(new MarkerOptions().position(busLocation).icon(BitmapDescriptorFactory.fromAsset("busIcon.png")).rotation(Integer.parseInt(temp1[3])));
+						//Log.i("mytag","here");
+						//busLocationMarker.remove();
+					//}
 				}
-				preBusLocation=busLocation;
-				
-			}
-		};
+			});
+			
+			
+		}
+	});*/
+	
+	//*******************************************
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,16 +81,9 @@ public class RoutesDetailActivity extends Activity {
 		
 		String route=(String) getIntent().getExtras().get("route");
 		Toast.makeText(this, route, Toast.LENGTH_SHORT).show();
-		
-		//final coreAPI api = new coreAPI();
 		initMap("red");
-		String[] temp=api.busLocations("uiowa", "red").split(";");
-		String[] temp1=temp[0].split(",");
-		busLocation=new LatLng(Float.parseFloat(temp1[1]), Float.parseFloat(temp1[2]));
-		preBusLocation=busLocation;
-		bus=map.addMarker(new MarkerOptions().position(busLocation).icon(BitmapDescriptorFactory.fromAsset("busIcon.png")).rotation(Float.parseFloat(temp1[3])).flat(true));
-		busHandler.postDelayed(busMarker, 1000);
 		
+		//busMarker.start();
 	}
 	
 	@Override
@@ -173,7 +174,8 @@ public class RoutesDetailActivity extends Activity {
 	        //set camera position
 	        //CameraPosition cameraPosition = new CameraPosition.Builder().target(center).zoom(13).build();
 	        //map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-	        map.animateCamera(CameraUpdateFactory.newLatLngZoom(redBound.getCenter(),13));
+	        //map.animateCamera(CameraUpdateFactory.newLatLngZoom(redBound.getCenter(),13));
+	        map.moveCamera(CameraUpdateFactory.newLatLngZoom(redBound.getCenter(), 13));
 	        map.setMyLocationEnabled(true);
 	        //map.setTrafficEnabled(true);
 		}

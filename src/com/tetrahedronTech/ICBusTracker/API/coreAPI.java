@@ -2,6 +2,8 @@ package com.tetrahedronTech.ICBusTracker.API;
 
 import java.util.List;
 
+import android.util.Log;
+
 public class coreAPI 
 {	
 	//ebongo official key

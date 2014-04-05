@@ -1,5 +1,8 @@
 package com.tetrahedronTech.ICBusTracker;
 
+import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
+import it.gmariotti.cardslib.library.view.CardListView;
+
 import java.io.BufferedReader;
 
 
@@ -74,6 +77,39 @@ public class RoutesDetailActivity extends Activity {
 		}
 	});*/
 	
+			private class LongOperation extends AsyncTask<String, String, String> {
+				//this method set the arraylist of cards, params can be viewed as String[]
+				@Override
+		        protected String doInBackground(String... params) {
+					while (true){
+					String line=api.busLocations(params[0], params[1]);
+					if (line.length() != 0){
+						publishProgress(new String[]{line});
+					}
+					
+					try {
+						Thread.currentThread().sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}}
+				}
+				
+				@Override
+				protected void onProgressUpdate(String... result){
+					String[] temp=result[0].split(";");
+					for (int i=0; i<temp.length;i++){
+						String[] temp1=temp[i].split(",");
+						LatLng busLocation=new LatLng(Float.parseFloat(temp1[1]),Float.parseFloat(temp1[2]));
+						map.addMarker(new MarkerOptions().anchor((float)0.5, (float)0.5).flat(true).title("BUS "+temp1[0]).position(busLocation).icon(BitmapDescriptorFactory.fromAsset("busIcon.png")).rotation(Integer.parseInt(temp1[3])));
+					}
+				}
+				
+				@Override
+		        protected void onPostExecute(String result) {
+		        }
+			}
+	
 	//*******************************************
 	
 	@Override
@@ -86,7 +122,9 @@ public class RoutesDetailActivity extends Activity {
 		Toast.makeText(this, route, Toast.LENGTH_SHORT).show();
 		initMap("red");
 		
-		//busMarker.start();
+		new LongOperation().execute(new String[]{"uiowa","red"});
+		
+		 
 	}
 	
 	@Override

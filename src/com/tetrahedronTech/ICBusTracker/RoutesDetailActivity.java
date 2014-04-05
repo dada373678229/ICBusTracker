@@ -77,8 +77,11 @@ public class RoutesDetailActivity extends Activity {
 		}
 	});*/
 	
+			//this class is to show bus marker on the map, continuously
 			private class LongOperation extends AsyncTask<String, String, String> {
-				//this method set the arraylist of cards, params can be viewed as String[]
+				
+				//this method fetches bus location data and update it every second
+				//Only Main Thread can update UI, so we have to put UI-changing-method in onProgressUpdate.
 				@Override
 		        protected String doInBackground(String... params) {
 					while (true){
@@ -95,6 +98,9 @@ public class RoutesDetailActivity extends Activity {
 					}}
 				}
 				
+				//this method is called after publishProgress is called, the parameter is the same as the
+				//the parameter of publishProgress.
+				//this method creates bus markers on the map
 				@Override
 				protected void onProgressUpdate(String... result){
 					String[] temp=result[0].split(";");

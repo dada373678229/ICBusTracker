@@ -16,6 +16,7 @@ import com.tetrahedronTech.ICBusTracker.cards.routeListDetailCard;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.net.ConnectivityManager;
@@ -24,6 +25,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.WindowManager.BadTokenException;
 import android.widget.Toast;
 
 public class FavoriteActivity extends Activity{
@@ -31,6 +33,7 @@ public class FavoriteActivity extends Activity{
 	private Context context;
 	//"cards" contains cards where each card has bus prediction information
 	private ArrayList<Card> cards = new ArrayList<Card>();
+	ProgressDialog pro;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,9 @@ public class FavoriteActivity extends Activity{
 		ActionBar actionBar = getActionBar();
 		actionBar.setTitle("favorite");
 		context=this;
+		
+		pro=createProgressDialog(this);
+		pro.show();
 		//now begin to do the heavy job: get bus predictions
 		new LongOperation().execute(new String[]{"1051"});
 		
@@ -83,6 +89,7 @@ public class FavoriteActivity extends Activity{
 		            listView.setAdapter(mCardArrayAdapter);
 		        }
 			}
+			pro.cancel();
         }
 	}
 	
@@ -118,5 +125,18 @@ public class FavoriteActivity extends Activity{
 		if (netInfo != null && netInfo.isConnectedOrConnecting() && cm.getActiveNetworkInfo().isAvailable() && cm.getActiveNetworkInfo().isConnected()) {
 			return true;}
 		return false;
+	}
+	
+	public static ProgressDialog createProgressDialog(Context mContext) {
+        ProgressDialog dialog = new ProgressDialog(mContext);
+        try {
+                dialog.show();
+        } catch (BadTokenException e) {
+
+        }
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.progress_dialog);
+        // dialog.setMessage(Message);
+        return dialog;
 	}
 }

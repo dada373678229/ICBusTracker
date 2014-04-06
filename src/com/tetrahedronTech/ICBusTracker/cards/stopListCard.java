@@ -43,7 +43,7 @@ public class stopListCard extends Card{
 			@Override
 			public void onClick(Card card, View view) {
 				Intent i = new Intent(getContext(),StopsDetailActivity.class);
-				i.putExtra("stopId", card.getId());
+				i.putExtra("stopTitle", card.getId());
 				getContext().startActivity(i);
 				((Activity) getContext()).overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
 			}

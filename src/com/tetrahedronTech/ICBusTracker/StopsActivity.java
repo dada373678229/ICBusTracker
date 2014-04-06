@@ -80,7 +80,8 @@ public class StopsActivity extends Activity{
 				Card temp=new stopListCard(this);
 				data=line.split(",");
 				((stopListCard) temp).setContent(data[0],data[1]);
-				temp.setId(data[0]);
+				String stopTitle=data[0]+","+data[1];
+				temp.setId(stopTitle);
 				result.add(temp);
 				line=br.readLine();
 			}

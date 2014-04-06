@@ -37,34 +37,29 @@ public class StopsDetailActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_stops_detail);
 		
+		//set up action bar
 		String stopTitle=getIntent().getExtras().getString("stopTitle");
 		String stopId=stopTitle.split(",")[0];
 		ActionBar actionBar = getActionBar();
 		actionBar.setTitle(stopTitle.split(",")[1]);
 		context=this;
+		
 		//show progress dialog
 		progressDialog=createProgressDialog(this);
 		progressDialog.show();
 		
 		//now begin to do the heavy job: get bus predictions
-		new LongOperation().execute(new String[]{stopId});
-        
+		new LongOperation().execute(new String[]{stopId}); 
 	}
 	
-	//this class can do heavy tasks in the background. Here, we want it to set cardlist
+		//this class can do heavy tasks in the background. Here, we want it to set cardlist
 		private class LongOperation extends AsyncTask<String, Void, String> {
-			//this method set the arraylist of cards, params can be viewed as String[]
+			
+			//this method sets the arraylist of cards, params can be viewed as String[]
 			@Override
 	        protected String doInBackground(String... params) {
 				int stopId=Integer.parseInt(params[0]);
 				cards=setPredictionItem(stopId);
-				Log.i("mytag",Integer.toString(errorCode));
-				if (cards.size()==0 && errorCode!=0){
-					errorCode=2;
-				}
-				else if (cards.size()!=0 && errorCode!=0){
-					errorCode=-1;
-				}
 				return "";
 			}
 			
@@ -72,7 +67,7 @@ public class StopsDetailActivity extends Activity{
 			//have to update the UI AFTER getting the predictions
 			@Override
 	        protected void onPostExecute(String result) {
-				//if the get any predictions, set the cardlist
+				//if we don't have any error, set the cardlist
 				if (errorCode==-1){
 					CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(context,cards);
 					CardListView listView = (CardListView) findViewById(R.id.stopDetailListView);
@@ -80,10 +75,9 @@ public class StopsDetailActivity extends Activity{
 			            listView.setAdapter(mCardArrayAdapter);
 			        }
 				}
-				
+				//close progress dialog and show error message
 				progressDialog.cancel();
-				errorHandler(errorCode);
-				
+				errorHandler(errorCode);			
 	        }
 		}
 		
@@ -94,29 +88,40 @@ public class StopsDetailActivity extends Activity{
 		    overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right);
 		}
 		
-		//this methods returns an arraylist cards where each card is a bus prediction
+		//this method returns an arraylist of cards where each card is a bus prediction
+		//this method also handles errors
 		private ArrayList<Card> setPredictionItem(int stopId){
 			ArrayList<Card> result=new ArrayList<Card>();
-			
+			//fetch data only if the device is connected to Internet
 			if(isOnline()){
+				//assume there is no error
 				errorCode=-1;
+				
 				coreAPI api=new coreAPI();
 				String p=api.busPrediction(stopId);
-				if (p.length()==0) return result;
+				//if there is no bus prediction
+				if (p.length()==0) {
+					errorCode=2;
+					return result;
+				}
+				//if there is some bus predictions
 				String data[]=p.split(";");
-				for (int i=0; i<data.length;i++){
+				for (int i=0; i<data.length;i++){		
+					//create card and card expand
+					Card temp=new routeListDetailCard(this);
 					CardExpand expand = new CardExpand(this);
 					expand.setInnerLayout(R.layout.stop_detail_expand_layout);
-					Card temp=new routeListDetailCard(this);
 					temp.addCardExpand(expand);
 					ViewToClickToExpand viewToClickToExpand = ViewToClickToExpand.builder().setupCardElement(ViewToClickToExpand.CardElementUI.CARD);
 		            temp.setViewToClickToExpand(viewToClickToExpand);
-					
+					//set values on card
 					String line[]=data[i].split(",");
 					((routeListDetailCard) temp).setContent(line[0],line[2],line[1]);
+					
 					result.add(temp);
 				}
 			}
+			//no connected to Internet
 			else{
 				errorCode=0;
 			}
@@ -132,7 +137,7 @@ public class StopsDetailActivity extends Activity{
 			return false;
 		}
 		
-		//thie method shows a progress dialog
+		//this method shows a progress dialog
 		private static ProgressDialog createProgressDialog(Context mContext) {
 	        ProgressDialog dialog = new ProgressDialog(mContext);
 	        try {
@@ -146,8 +151,11 @@ public class StopsDetailActivity extends Activity{
 	        return dialog;
 		}
 		
+		//this method is called everytime we fetch api data.
+		//if errorCode is not -1 (means no error), we show error message on screen
 		private void errorHandler(int errorCode){
 			if (errorCode!=-1){
+				setContentView(R.layout.error_layout);
 				TextView t = (TextView) this.findViewById(R.id.stop_detail_textView);
 				switch (errorCode){
 				case 0: t.setText("No Internet Connection");

@@ -4,12 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:background="#000000">
-
-    <it.gmariotti.cardslib.library.view.CardListView
+    
+    <TextView 
+        android:id="@+id/stop_detail_textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/stopDetailListView"/>
+        android:textSize="25dp"
+        android:gravity="center"/>
     
-    
-    
+
 </LinearLayout>

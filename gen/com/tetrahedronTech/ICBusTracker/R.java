@@ -391,24 +391,24 @@ containing a value of this type.
     }
     public static final class id {
         public static final int action_settings=0x7f0c002f;
-        public static final int card_content_expand_layout=0x7f0c001a;
+        public static final int card_content_expand_layout=0x7f0c0019;
         public static final int card_expand_inner_simple_title=0x7f0c0021;
-        public static final int card_header_button_expand=0x7f0c0012;
-        public static final int card_header_button_frame=0x7f0c0010;
-        public static final int card_header_button_other=0x7f0c0013;
-        public static final int card_header_button_overflow=0x7f0c0011;
-        public static final int card_header_inner_frame=0x7f0c000f;
+        public static final int card_header_button_expand=0x7f0c0011;
+        public static final int card_header_button_frame=0x7f0c000f;
+        public static final int card_header_button_other=0x7f0c0012;
+        public static final int card_header_button_overflow=0x7f0c0010;
+        public static final int card_header_inner_frame=0x7f0c000e;
         public static final int card_header_inner_simple_title=0x7f0c0022;
-        public static final int card_header_layout=0x7f0c0019;
-        public static final int card_main_content_layout=0x7f0c0016;
+        public static final int card_header_layout=0x7f0c0018;
+        public static final int card_main_content_layout=0x7f0c0015;
         public static final int card_main_inner_simple_title=0x7f0c0023;
-        public static final int card_main_layout=0x7f0c0018;
-        public static final int card_overlap=0x7f0c001b;
-        public static final int card_shadow_layout=0x7f0c0017;
-        public static final int card_shadow_view=0x7f0c0014;
-        public static final int card_thumb_and_content_layout=0x7f0c001c;
-        public static final int card_thumbnail_image=0x7f0c0015;
-        public static final int card_thumbnail_layout=0x7f0c001d;
+        public static final int card_main_layout=0x7f0c0017;
+        public static final int card_overlap=0x7f0c001a;
+        public static final int card_shadow_layout=0x7f0c0016;
+        public static final int card_shadow_view=0x7f0c0013;
+        public static final int card_thumb_and_content_layout=0x7f0c001b;
+        public static final int card_thumbnail_image=0x7f0c0014;
+        public static final int card_thumbnail_layout=0x7f0c001c;
         public static final int favoritButton=0x7f0c0007;
         public static final int favoriteListView=0x7f0c0005;
         public static final int hybrid=0x7f0c0004;
@@ -428,16 +428,16 @@ containing a value of this type.
         public static final int route_list_view_routeName=0x7f0c0029;
         public static final int routesButton=0x7f0c0009;
         public static final int satellite=0x7f0c0002;
-        public static final int stopDetailListView=0x7f0c000e;
+        public static final int stopDetailListView=0x7f0c000d;
         public static final int stopListView=0x7f0c000c;
-        public static final int stop_detail_textView=0x7f0c000d;
+        public static final int stop_detail_textView=0x7f0c0020;
         public static final int stop_list_view_stopId=0x7f0c002d;
         public static final int stop_list_view_stopName=0x7f0c002e;
         public static final int stopsButton=0x7f0c0008;
         public static final int terrain=0x7f0c0003;
-        public static final int undobar=0x7f0c001e;
-        public static final int undobar_button=0x7f0c0020;
-        public static final int undobar_message=0x7f0c001f;
+        public static final int undobar=0x7f0c001d;
+        public static final int undobar_button=0x7f0c001f;
+        public static final int undobar_message=0x7f0c001e;
         public static final int weatherButton=0x7f0c0006;
     }
     public static final class integer {
@@ -461,17 +461,18 @@ containing a value of this type.
         public static final int card_thumbnail_layout=0x7f03000d;
         public static final int card_thumbnail_overlay_layout=0x7f03000e;
         public static final int card_undo_layout=0x7f03000f;
-        public static final int inner_base_expand=0x7f030010;
-        public static final int inner_base_header=0x7f030011;
-        public static final int inner_base_main=0x7f030012;
-        public static final int list_card_layout=0x7f030013;
-        public static final int list_card_thumbnail_layout=0x7f030014;
-        public static final int list_card_undo_message=0x7f030015;
-        public static final int progress_dialog=0x7f030016;
-        public static final int route_list_card=0x7f030017;
-        public static final int route_list_detail_card=0x7f030018;
-        public static final int stop_detail_expand_layout=0x7f030019;
-        public static final int stop_list_card=0x7f03001a;
+        public static final int error_layout=0x7f030010;
+        public static final int inner_base_expand=0x7f030011;
+        public static final int inner_base_header=0x7f030012;
+        public static final int inner_base_main=0x7f030013;
+        public static final int list_card_layout=0x7f030014;
+        public static final int list_card_thumbnail_layout=0x7f030015;
+        public static final int list_card_undo_message=0x7f030016;
+        public static final int progress_dialog=0x7f030017;
+        public static final int route_list_card=0x7f030018;
+        public static final int route_list_detail_card=0x7f030019;
+        public static final int stop_detail_expand_layout=0x7f03001a;
+        public static final int stop_list_card=0x7f03001b;
     }
     public static final class menu {
         public static final int home=0x7f0d0000;

@@ -20,6 +20,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager.BadTokenException;
@@ -49,7 +50,23 @@ public class StopsDetailActivity extends Activity{
 		progressDialog.show();
 		
 		//now begin to do the heavy job: get bus predictions
-		new LongOperation().execute(new String[]{stopId}); 
+		final LongOperation getData=new LongOperation();
+		getData.execute(new String[]{stopId}); 
+		 
+		//if it takes more than 2 seconds to fetch data from the Internet,
+		//stop AsyncTask and show error page
+		Handler handler = new Handler();
+		handler.postDelayed(new Runnable()
+		{
+		  @Override
+		  public void run() {
+		      if ( getData.getStatus() == AsyncTask.Status.RUNNING ){
+		          getData.cancel(true);
+		      	  progressDialog.cancel();
+				  errorHandler(1);
+		      }
+		  }
+		}, 2500);
 	}
 	
 		//this class can do heavy tasks in the background. Here, we want it to set cardlist

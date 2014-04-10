@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.tetrahedronTech.ICBusTracker.API.coreAPI;
 import com.tetrahedronTech.ICBusTracker.cards.routeListDetailCard;
+import com.tetrahedronTech.ICBusTracker.cards.routeListDetailCardExpand;
 
 
 import android.app.ActionBar;
@@ -19,11 +20,14 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager.BadTokenException;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class StopsDetailActivity extends Activity{
@@ -31,7 +35,7 @@ public class StopsDetailActivity extends Activity{
 	//"cards" contains cards where each card has bus prediction information
 	private ArrayList<Card> cards = new ArrayList<Card>();
 	private ProgressDialog progressDialog;
-	//errorCode -1=no error, 0=no internet connection, 1=internet timeout 2=no predictions
+	//errorCode -1=no error, 0=no internet connection, 1=internet timeout, 2=no predictions
 	private int errorCode=-1;
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +55,12 @@ public class StopsDetailActivity extends Activity{
 		
 		//now begin to do the heavy job: get bus predictions
 		final LongOperation getData=new LongOperation();
-		getData.execute(new String[]{stopId}); 
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+		    getData.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new String[]{stopId});
+		else
+		    getData.execute(new String[]{stopId});
 		 
-		//if it takes more than 2 seconds to fetch data from the Internet,
+		//if it takes more than 3 seconds to fetch data from the Internet,
 		//stop AsyncTask and show error page
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable()
@@ -66,7 +73,7 @@ public class StopsDetailActivity extends Activity{
 				  errorHandler(1);
 		      }
 		  }
-		}, 2500);
+		}, 5000);
 	}
 	
 		//this class can do heavy tasks in the background. Here, we want it to set cardlist
@@ -126,15 +133,18 @@ public class StopsDetailActivity extends Activity{
 				for (int i=0; i<data.length;i++){		
 					//create card and card expand
 					Card temp=new routeListDetailCard(this);
-					CardExpand expand = new CardExpand(this);
+		            
+					//set values on card
+					String line[]=data[i].split(",");
+					((routeListDetailCard) temp).setContent(line[0],line[3],line[1]);
+					
+					routeListDetailCardExpand expand = new routeListDetailCardExpand(this);
 					expand.setInnerLayout(R.layout.stop_detail_expand_layout);
+					expand.setContent(line[0], line[1], stopId);
 					temp.addCardExpand(expand);
 					ViewToClickToExpand viewToClickToExpand = ViewToClickToExpand.builder().setupCardElement(ViewToClickToExpand.CardElementUI.CARD);
 		            temp.setViewToClickToExpand(viewToClickToExpand);
-					//set values on card
-					String line[]=data[i].split(",");
-					((routeListDetailCard) temp).setContent(line[0],line[2],line[1]);
-					
+		            
 					result.add(temp);
 				}
 			}

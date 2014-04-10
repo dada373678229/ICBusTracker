@@ -1,6 +1,7 @@
 package com.tetrahedronTech.ICBusTracker;
 
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
+
 import it.gmariotti.cardslib.library.view.CardListView;
 
 import java.io.BufferedReader;
@@ -54,31 +55,11 @@ public class RoutesDetailActivity extends Activity {
 	//******************************************
 	coreAPI api=new coreAPI();
 	Marker busLocationMarker;
-	/*
-	Thread busMarker=new Thread(new Runnable(){
-		public void run(){
-			
-			runOnUiThread(new Runnable(){
-				public void run(){
-					//while(true){
-						String line=api.busLocations("uiowa", "red");
-						
-						String[] temp=line.split(";");
-						String[] temp1=temp[0].split(",");
-						LatLng busLocation=new LatLng(Float.parseFloat(temp1[1]),Float.parseFloat(temp1[2]));
-						busLocationMarker=map.addMarker(new MarkerOptions().position(busLocation).icon(BitmapDescriptorFactory.fromAsset("busIcon.png")).rotation(Integer.parseInt(temp1[3])));
-						//Log.i("mytag","here");
-						//busLocationMarker.remove();
-					//}
-				}
-			});
-			
-			
-		}
-	});*/
+	private Context context;
+	final BusLocationMarkerThread getBusLocation=new BusLocationMarkerThread();
 	
 			//this class is to show bus marker on the map, continuously
-			private class LongOperation extends AsyncTask<String, String, String> {
+			private class BusLocationMarkerThread extends AsyncTask<String, String, String> {
 				
 				//this method fetches bus location data and update it every second
 				//Only Main Thread can update UI, so we have to put UI-changing-method in onProgressUpdate.
@@ -113,6 +94,7 @@ public class RoutesDetailActivity extends Activity {
 				
 				@Override
 		        protected void onPostExecute(String result) {
+					Log.i("mytag","onPostExecute");
 		        }
 			}
 	
@@ -127,16 +109,26 @@ public class RoutesDetailActivity extends Activity {
 		String route=(String) getIntent().getExtras().get("route");
 		Toast.makeText(this, route, Toast.LENGTH_SHORT).show();
 		initMap("red");
+		context=this;
 		
-		new LongOperation().execute(new String[]{"uiowa","red"});
+		//start tracking bus locations
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+		    getBusLocation.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new String[]{"uiowa","red"});
+		else
+		    getBusLocation.execute(new String[]{"uiowa","red"});
 		
 		 
 	}
 	
 	@Override
     protected void onDestroy() {
-        //busHandler.removeCallbacks(busMarker);
         super.onDestroy();
+    }
+	
+	@Override
+    protected void onPause() {
+		getBusLocation.cancel(true);
+        super.onPause();
     }
 	
 	//animation when back button is pressed
@@ -206,13 +198,17 @@ public class RoutesDetailActivity extends Activity {
 	        isr.close();
 	        br.close();
 	        
+	        //set up listener to response to click on info window
+	        //here, we need to go to the stop detail page that user clicked
 	        map.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
 	            @Override
 	            public void onInfoWindowClick(Marker marker) {
-	               Intent i = new Intent(getBaseContext(),StopsDetailActivity.class);
-	               i.putExtra("stopId", marker.getTitle());
-	               startActivity(i);
+	            	
+	               Intent i = new Intent(context,StopsDetailActivity.class);
+	               i.putExtra("stopTitle", marker.getTitle()+","+marker.getSnippet());
+	               context.startActivity(i);
 	               overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+	               
 	            }
 	        });
 	       

@@ -390,7 +390,9 @@ containing a value of this type.
         public static final int yellow1=0x7f020043;
     }
     public static final class id {
-        public static final int action_settings=0x7f0c002f;
+        public static final int action_settings=0x7f0c0033;
+        public static final int alarm=0x7f0c0030;
+        public static final int cancel_btn=0x7f0c0029;
         public static final int card_content_expand_layout=0x7f0c0019;
         public static final int card_expand_inner_simple_title=0x7f0c0021;
         public static final int card_header_button_expand=0x7f0c0011;
@@ -416,23 +418,25 @@ containing a value of this type.
         public static final int list_card_undobar=0x7f0c0025;
         public static final int list_card_undobar_button=0x7f0c0027;
         public static final int list_card_undobar_message=0x7f0c0026;
-        public static final int menu_search=0x7f0c0030;
+        public static final int menu_search=0x7f0c0034;
         public static final int none=0x7f0c0000;
         public static final int normal=0x7f0c0001;
-        public static final int progressBar=0x7f0c0028;
+        public static final int number_picker=0x7f0c0028;
+        public static final int progressBar=0x7f0c002b;
         public static final int routeDetailMapFragment=0x7f0c000b;
         public static final int routeListView=0x7f0c000a;
-        public static final int route_list_view_detail_routeDirection=0x7f0c002b;
-        public static final int route_list_view_detail_routeName=0x7f0c002a;
-        public static final int route_list_view_detail_routeTime=0x7f0c002c;
-        public static final int route_list_view_routeName=0x7f0c0029;
+        public static final int route_list_view_detail_routeDirection=0x7f0c002e;
+        public static final int route_list_view_detail_routeName=0x7f0c002d;
+        public static final int route_list_view_detail_routeTime=0x7f0c002f;
+        public static final int route_list_view_routeName=0x7f0c002c;
         public static final int routesButton=0x7f0c0009;
         public static final int satellite=0x7f0c0002;
+        public static final int set_btn=0x7f0c002a;
         public static final int stopDetailListView=0x7f0c000d;
         public static final int stopListView=0x7f0c000c;
         public static final int stop_detail_textView=0x7f0c0020;
-        public static final int stop_list_view_stopId=0x7f0c002d;
-        public static final int stop_list_view_stopName=0x7f0c002e;
+        public static final int stop_list_view_stopId=0x7f0c0031;
+        public static final int stop_list_view_stopName=0x7f0c0032;
         public static final int stopsButton=0x7f0c0008;
         public static final int terrain=0x7f0c0003;
         public static final int undobar=0x7f0c001d;
@@ -468,11 +472,12 @@ containing a value of this type.
         public static final int list_card_layout=0x7f030014;
         public static final int list_card_thumbnail_layout=0x7f030015;
         public static final int list_card_undo_message=0x7f030016;
-        public static final int progress_dialog=0x7f030017;
-        public static final int route_list_card=0x7f030018;
-        public static final int route_list_detail_card=0x7f030019;
-        public static final int stop_detail_expand_layout=0x7f03001a;
-        public static final int stop_list_card=0x7f03001b;
+        public static final int number_picker_layout=0x7f030017;
+        public static final int progress_dialog=0x7f030018;
+        public static final int route_list_card=0x7f030019;
+        public static final int route_list_detail_card=0x7f03001a;
+        public static final int stop_detail_expand_layout=0x7f03001b;
+        public static final int stop_list_card=0x7f03001c;
     }
     public static final class menu {
         public static final int home=0x7f0d0000;

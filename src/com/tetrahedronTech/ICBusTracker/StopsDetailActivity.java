@@ -37,6 +37,7 @@ public class StopsDetailActivity extends Activity{
 	private ProgressDialog progressDialog;
 	//errorCode -1=no error, 0=no internet connection, 1=internet timeout, 2=no predictions
 	private int errorCode=-1;
+	final LongOperation getData=new LongOperation();
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,7 +55,6 @@ public class StopsDetailActivity extends Activity{
 		progressDialog.show();
 		
 		//now begin to do the heavy job: get bus predictions
-		final LongOperation getData=new LongOperation();
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
 		    getData.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new String[]{stopId});
 		else

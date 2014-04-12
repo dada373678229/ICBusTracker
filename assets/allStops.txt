@@ -1,34 +1,34 @@
-1,Downtown Interchange,41.66017,-91.5359
-2,Downtown Interchange,41.66004,-91.53498
-100,Softball Complex,41.6686761,-91.5651445
-120,Macbride Hall,41.66246,-91.535783
-125,IMU,41.6623626,-91.5376186
-145,English Philosophy Building, IMU,41.6612,-91.5403504
-146,English Philosophy Building, IMU,41.66135,-91.5384996
-241,Carver Hawkeye Arena,41.6633887,-91.5538508
-245,Newton and Lincoln,41.6635703,-91.5512418
-246,Dental College,41.6634819,-91.5510002
-253,VA Hospital,41.6626701,-91.5486194
-254,VA Hospital,41.662671,-91.5483781
-256,MERF,41.66328,-91.5450199
-257,Newton Road Ramp,41.6634,-91.5459966
-263,UI Student Health,41.6627106,-91.5435114
-264,IIBD,41.6624947,-91.5436291
-320,The Lodge,41.6474507,-91.5491329
-340,12th/North Ridge,41.7001336,-91.5862129
-341,12th Avenue and North Ridge Drive,41.6999383,-91.5860106
-345,12th/Liberty Lane,41.695978,-91.583047
-346,12th Avenue and Liberty Lane,41.6961537,-91.5831617
-350,Holiday Road and Oak Lake Park Road,41.6949603,-91.5808127
-351,Holiday Road and Oak Lake Park Road,41.69495,-91.5805
-354,Holiday Road and Westview,41.6934103,-91.5763818
-355,Holiday Road and Eastview,41.69334,-91.5751768
-360,Holiday Road and High Country Road,41.6934889,-91.5733273
-361,Holiday Road and Old Hickory Lane,41.693518,-91.570652
-365,Holiday Road and Lakewood Hills,41.69298,-91.56827
-366,Holiday Road and Lakewood Hills,41.69295,-91.56838
-375,Coral Center,41.6783269,-91.5659203
-385,Clear Creek,41.6697357,-91.56534
+0001,Downtown Interchange,41.66017,-91.5359
+0002,Downtown Interchange,41.66004,-91.53498
+0100,Softball Complex,41.6686761,-91.5651445
+0120,Macbride Hall,41.66246,-91.535783
+0125,IMU,41.6623626,-91.5376186
+0145,English Philosophy Building, IMU,41.6612,-91.5403504
+0146,English Philosophy Building, IMU,41.66135,-91.5384996
+0241,Carver Hawkeye Arena,41.6633887,-91.5538508
+0245,Newton and Lincoln,41.6635703,-91.5512418
+0246,Dental College,41.6634819,-91.5510002
+0253,VA Hospital,41.6626701,-91.5486194
+0254,VA Hospital,41.662671,-91.5483781
+0256,MERF,41.66328,-91.5450199
+0257,Newton Road Ramp,41.6634,-91.5459966
+0263,UI Student Health,41.6627106,-91.5435114
+0264,IIBD,41.6624947,-91.5436291
+0320,The Lodge,41.6474507,-91.5491329
+0340,12th/North Ridge,41.7001336,-91.5862129
+0341,12th Avenue and North Ridge Drive,41.6999383,-91.5860106
+0345,12th/Liberty Lane,41.695978,-91.583047
+0346,12th Avenue and Liberty Lane,41.6961537,-91.5831617
+0350,Holiday Road and Oak Lake Park Road,41.6949603,-91.5808127
+0351,Holiday Road and Oak Lake Park Road,41.69495,-91.5805
+0354,Holiday Road and Westview,41.6934103,-91.5763818
+0355,Holiday Road and Eastview,41.69334,-91.5751768
+0360,Holiday Road and High Country Road,41.6934889,-91.5733273
+0361,Holiday Road and Old Hickory Lane,41.693518,-91.570652
+0365,Holiday Road and Lakewood Hills,41.69298,-91.56827
+0366,Holiday Road and Lakewood Hills,41.69295,-91.56838
+0375,Coral Center,41.6783269,-91.5659203
+0385,Clear Creek,41.6697357,-91.56534
 1000,Mayflower Hall,41.6768599,-91.53203
 1005,Park Road South,41.6714601,-91.5337446
 1006,Park Road Bridge North,41.67157,-91.5337499

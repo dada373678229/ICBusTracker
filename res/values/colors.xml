@@ -34,5 +34,8 @@
 
     <color name="card_pressed_kitkat">#10000000</color>
     <color name="card_activated_kitkat">#ADE1F4</color>
+    
+    <!-- Activity color -->
+    <color name="black">#000000</color>
 
 </resources>

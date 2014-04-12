@@ -229,7 +229,7 @@ public class RoutesDetailActivity extends Activity {
 	        //CameraPosition cameraPosition = new CameraPosition.Builder().target(center).zoom(13).build();
 	        //map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 	        //map.animateCamera(CameraUpdateFactory.newLatLngZoom(redBound.getCenter(),13));
-	        map.moveCamera(CameraUpdateFactory.newLatLngZoom(redBound.getCenter(), 13));
+	        map.moveCamera(CameraUpdateFactory.newLatLngZoom(redBound.getCenter(), 14));
 	        map.setMyLocationEnabled(true);
 	        //map.setTrafficEnabled(true);
 		}

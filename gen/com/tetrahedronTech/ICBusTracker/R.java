@@ -201,6 +201,9 @@ containing a value of this type.
         public static final int zOrderOnTop=0x7f010015;
     }
     public static final class color {
+        /**  Activity color 
+         */
+        public static final int black=0x7f060017;
         public static final int card_activated=0x7f060006;
         public static final int card_activated_kitkat=0x7f060008;
         /**  Card Color 
@@ -233,8 +236,8 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_disabled=0x7f06000f;
         public static final int common_signin_btn_light_text_focused=0x7f060010;
         public static final int common_signin_btn_light_text_pressed=0x7f06000e;
-        public static final int common_signin_btn_text_dark=0x7f060017;
-        public static final int common_signin_btn_text_light=0x7f060018;
+        public static final int common_signin_btn_text_dark=0x7f060018;
+        public static final int common_signin_btn_text_light=0x7f060019;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 

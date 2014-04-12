@@ -18,11 +18,19 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
 
-public class StopsActivity extends Activity{
+public class StopsActivity extends Activity implements OnQueryTextListener{
+	
+	//this arraylist contains all stops
+	private ArrayList<stopObject> stops=new ArrayList<stopObject>();
+	
+	ArrayList<Card> cards = new ArrayList<Card>();
+	CardArrayAdapter mCardArrayAdapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +40,9 @@ public class StopsActivity extends Activity{
 		actionBar.setTitle("stops");
 		
 		//"cards" contains cards, each card is a stop
-		ArrayList<Card> cards = new ArrayList<Card>();
 		cards =setListItem();
 		//set cards to the card list
-		CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(this,cards);
+		mCardArrayAdapter = new CardArrayAdapter(this,cards);
 		CardListView listView = (CardListView) findViewById(R.id.stopListView);
         if (listView!=null){
             listView.setAdapter(mCardArrayAdapter);
@@ -60,6 +67,7 @@ public class StopsActivity extends Activity{
 	    SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
 	    // Assumes current activity is the searchable activity
 	    searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+	    searchView.setOnQueryTextListener(this);
 
 	    return true;
 	}
@@ -83,10 +91,46 @@ public class StopsActivity extends Activity{
 				String stopTitle=data[0]+","+data[1];
 				temp.setId(stopTitle);
 				result.add(temp);
+				stops.add(new stopObject(data[0],data[1]));
 				line=br.readLine();
 			}
 		}
 		catch (Exception e){}
 		return result;
+	}
+	
+	//search stops according to user's input, and returns an arraylist of cards for adapter
+	private ArrayList<Card> search(String newText){
+		ArrayList<Card> result=new ArrayList<Card>();
+		
+		//scan all the stops
+		for (int i=0;i<stops.size();i++){
+			String stopId=stops.get(i).getStopId();
+			String stopName=stops.get(i).getStopName();
+			//if stopId contains query or stopName contains query, create a card of this stop and put it into arraylist
+			if(stopId.toLowerCase().contains(newText.toLowerCase()) | stopName.toLowerCase().contains(newText.toLowerCase())){
+				Card temp=new stopListCard(this);
+				((stopListCard) temp).setContent(stopId,stopName);
+				String stopTitle=stopId+","+stopName;
+				temp.setId(stopTitle);
+				result.add(temp);
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public boolean onQueryTextChange(String newText) {
+		//update the arraylist for adapter, clear the data in the adapter, add new data and notify change
+		cards=search(newText);
+		mCardArrayAdapter.clear();
+		mCardArrayAdapter.addAll(cards);
+		mCardArrayAdapter.notifyDataSetChanged();
+		return false;
+	}
+
+	@Override
+	public boolean onQueryTextSubmit(String arg0) {
+		return false;
 	}
 }

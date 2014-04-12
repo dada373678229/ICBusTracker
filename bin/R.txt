@@ -30,6 +30,7 @@ int attr uiZoomControls 0x7f010012
 int attr uiZoomGestures 0x7f010013
 int attr useViewLifecycle 0x7f010014
 int attr zOrderOnTop 0x7f010015
+int color black 0x7f060017
 int color card_activated 0x7f060006
 int color card_activated_kitkat 0x7f060008
 int color card_background 0x7f060000
@@ -53,8 +54,8 @@ int color common_signin_btn_light_text_default 0x7f06000d
 int color common_signin_btn_light_text_disabled 0x7f06000f
 int color common_signin_btn_light_text_focused 0x7f060010
 int color common_signin_btn_light_text_pressed 0x7f06000e
-int color common_signin_btn_text_dark 0x7f060017
-int color common_signin_btn_text_light 0x7f060018
+int color common_signin_btn_text_dark 0x7f060018
+int color common_signin_btn_text_light 0x7f060019
 int dimen activity_horizontal_margin 0x7f07002e
 int dimen activity_vertical_margin 0x7f07002f
 int dimen card_background_default_radius 0x7f070001

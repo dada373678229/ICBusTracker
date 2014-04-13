@@ -136,7 +136,7 @@ public class StopsDetailActivity extends Activity{
 		            
 					//set values on card
 					String line[]=data[i].split(",");
-					((routeListDetailCard) temp).setContent(line[0],line[3],line[1]);
+					((routeListDetailCard) temp).setContent(line[0],line[3],line[1]+"min");
 					
 					routeListDetailCardExpand expand = new routeListDetailCardExpand(this);
 					expand.setInnerLayout(R.layout.stop_detail_expand_layout);
